@@ -25,11 +25,11 @@ public class CalculatorController {
     @PostMapping("/calculate")
     public String calculate(
             @RequestParam("num1") double num1,
-//       @RequestParam("num2") double num2,
-//       @RequestParam("operation") String operation,
+            @RequestParam("num2") double num2,
+            @RequestParam("operation") String operation,
             Model model
     ) {
-        System.out.println("Clicked!");
+        System.out.println("Clicked!" + num1 + num2 + operation);
 
         try {
             double result = calculatorService.calculate(num1, 10, "add");
