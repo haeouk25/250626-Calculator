@@ -3,6 +3,77 @@
 <head>
     <meta charset="UTF-8">
     <title>Awesome한 계산기</title>
+    <style>
+        @font-face {
+            font-family: 'CookieRun-Regular';
+            src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/CookieRun-Regular.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        body {
+            font-family: CookieRun-Regular;
+            background-color: #bbdefb;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #F4AFA3;
+            text-align: center;
+        }
+
+        form {
+            background: #F4AFA3;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 2px 4px rgba(0,0,0,.5);
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        label {
+            display: inline-block;
+            width: 85px;
+            margin-bottom: 10px;
+            background-color: white;
+        }
+
+        input, select {
+            background-color: #bbdefb;
+            color: #000000;
+            border: 1px solid #000000;
+            margin-top: 5px;
+            margin-bottom: 15px;
+            font-size: 24px;
+        }
+
+        button {
+            background-color: #bbdefb;
+            color: #000000;
+            border: none;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            cursor: pointer;
+            font-family: CookieRun-Regular;
+        }
+
+        .result, .error {
+            max-width: 400px;
+            margin: 20px auto;
+            padding: 15px;
+            border-radius: 5px;
+            text-align: center;
+        }
+
+        .result {
+            background-color: #F4AFA3;
+            color: #000000;
+        }
+    </style>
 </head>
 <body>
 <h1>Awesome한 계산기</h1>
@@ -18,10 +89,18 @@
         <option value="add">Add (+)</option>
         <option value="subtract">Subtract (-)</option>
         <option value="multiply">Multiply (×)</option>
-        <option value="divide">Divide (+)</option>
+        <option value="divide">Divide (÷)</option>
     </select>
 
-    <button type="submit">Calculate</button>
+    <button type="submit" style="font-family: CookieRun-Regular">Calculate</button>
 </form>
+
+<div th:if="${errorMessage}" class="error">
+    <p th:text="${errorMessage}"></p>
+</div>
+
+<div th:if="${result}" class="result">
+    <h2>Result: <span th:text="${result}"></span></h2>
+</div>
 </body>
 </html>
